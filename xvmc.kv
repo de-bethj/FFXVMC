@@ -1,42 +1,110 @@
-<xvmcWidget>:
+#:kivy 2.0.0
+
+<RootWidget>:
     GridLayout:
-        rows: 8
-        columns: 2
+        cols: 2
+        width: root.width
+        height: root.height
 
-        Label:
-            text: "Target: "
-        TextInput:
-            id: "inputTarget"
 
-        Label:
-            text: "Gray: "
-        TextInput:
-            id: "inputGray"
+        TargetController:
+            target_label: target_label
+            BoxLayout:
+                orientation: 'vertical'
 
-        Label:
-            text: "White: "
-        TextInput:
-            id: "inputWhite"
+                Label:
+                    id: target_label
+                    text: "Make what?"
 
-        Label:
-            text: "Green: "
-        TextInput:
-            id: "inputGreen"
+                ToggleButton:
+                    text: "Gold"
+                    background_color: "gold"
+                    group: 'target'
+                    on_press: root.TargetController.print_button_text_target
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "Purple"
+                    background_color: "purple"
+                    group: 'target'
+                    on_press: root.TargetController.print_button_text_target
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "Blue"
+                    background_color: "blue"
+                    group: 'target'
+                    on_press: root.TargetController.print_button_text_target
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "Green"
+                    background_color: "lime"
+                    group: 'target'
+                    on_press: root.TargetController.print_button_text_target
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "White"
+                    background_color: "white"
+                    group: 'target'
+                    on_press: root.TargetController.print_button_text_target
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "Black"
+                    background_color: "gray"
+                    group: 'target'
+                    on_press: root.TargetController.print_button_text_target
+                    on_release: root.ResultController.update_result_label
 
-        Label:
-            text: "Blue: "
-        TextInput:
-            id: "inputBlue"
+                # paired w/ result_label to force layout to match
+                Label:
+                    text: ""
 
-        Label:
-            text: "Purple: "
-        TextInput:
-            id: "inputPurple"
+        SourceController:
+            source_label: source_label
+            BoxLayout:
+                orientation: 'vertical'
 
-        Label:
-            text: "Gold: "
-        TextInput:
-            id: "inputGold"
+                Label:
+                    id: source_label
+                    text: "From what?"
+
+                ToggleButton:
+                    text: "Gold"
+                    group: 'source'
+                    on_press: root.SourceController.print_button_text_source
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "Purple"
+                    group: 'source'
+                    on_press: root.SourceController.print_button_text_source
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "Blue"
+                    group: 'source'
+                    on_press: root.SourceController.print_button_text_source
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "Green"
+                    group: 'source'
+                    on_press: root.SourceController.print_button_text_source
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "White"
+                    group: 'source'
+                    on_press: root.SourceController.print_button_text_source
+                    on_release: root.ResultController.update_result_label
+                ToggleButton:
+                    text: "Black"
+                    group: 'source'
+                    on_press: root.SourceController.print_button_text_source
+                    on_release: root.ResultController.update_result_label
+
+                # can. not. figure out why this thing won't work outside
+                ResultController:
+                    result_label: result_label
+                    Label:
+                        id: result_label
+                        text: "Count all the things!"
+
+
 
 
 
