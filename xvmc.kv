@@ -1,5 +1,37 @@
 #:kivy 2.0.0
 
+<TargetButton>:
+    group: 'target'
+    on_press: root.update_target_label
+    on_release: root.update_target_label
+
+<SourceButton>:
+    group: 'source'
+    on_press: root.update_source_label
+    on_release: root.update_source_label
+
+<ResultDisplay>:
+    id: result_label
+    text: "Count all the things!"
+    size: (self.width, 50)
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: (self.width, self.height)
+
+<DummyDisplay>:
+# forces the buttons to make space for the result display
+    text: ""
+    size: (self.width, 50)
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: (self.width, self.height)
+
 <RootWidget>:
     GridLayout:
         cols: 2
@@ -16,46 +48,26 @@
                     id: target_label
                     text: "Make what?"
 
-                ToggleButton:
+                TargetButton:
                     text: "Gold"
                     background_color: "gold"
-                    group: 'target'
-                    on_press: root.TargetController.print_button_text_target
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                TargetButton:
                     text: "Purple"
                     background_color: "purple"
-                    group: 'target'
-                    on_press: root.TargetController.print_button_text_target
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                TargetButton:
                     text: "Blue"
                     background_color: "blue"
-                    group: 'target'
-                    on_press: root.TargetController.print_button_text_target
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                TargetButton:
                     text: "Green"
                     background_color: "lime"
-                    group: 'target'
-                    on_press: root.TargetController.print_button_text_target
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                TargetButton:
                     text: "White"
                     background_color: "white"
-                    group: 'target'
-                    on_press: root.TargetController.print_button_text_target
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                TargetButton:
                     text: "Black"
                     background_color: "gray"
-                    group: 'target'
-                    on_press: root.TargetController.print_button_text_target
-                    on_release: root.ResultController.update_result_label
+                DummyDisplay:
 
-                # paired w/ result_label to force layout to match
-                Label:
-                    text: ""
 
         SourceController:
             source_label: source_label
@@ -66,44 +78,22 @@
                     id: source_label
                     text: "From what?"
 
-                ToggleButton:
+                SourceButton:
                     text: "Gold"
-                    group: 'source'
-                    on_press: root.SourceController.print_button_text_source
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                SourceButton:
                     text: "Purple"
-                    group: 'source'
-                    on_press: root.SourceController.print_button_text_source
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                SourceButton:
                     text: "Blue"
-                    group: 'source'
-                    on_press: root.SourceController.print_button_text_source
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                SourceButton:
                     text: "Green"
-                    group: 'source'
-                    on_press: root.SourceController.print_button_text_source
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                SourceButton:
                     text: "White"
-                    group: 'source'
-                    on_press: root.SourceController.print_button_text_source
-                    on_release: root.ResultController.update_result_label
-                ToggleButton:
+                SourceButton:
                     text: "Black"
-                    group: 'source'
-                    on_press: root.SourceController.print_button_text_source
-                    on_release: root.ResultController.update_result_label
+                DummyDisplay:
 
-                # can. not. figure out why this thing won't work outside
-                ResultController:
-                    result_label: result_label
-                    Label:
-                        id: result_label
-                        text: "Count all the things!"
-
+    ResultDisplay:
+        width: root.width
 
 
 
