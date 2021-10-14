@@ -1,4 +1,5 @@
 import math
+import logging
 
 from kivy.app import App
 from kivy.uix.widget import Widget
@@ -12,17 +13,15 @@ from constants import STEP, MATS
 
 class RootWidget(Widget):
 
-    target_label = ObjectProperty()
-    source_label = ObjectProperty()
-    info = StringProperty()
-
     class DummyDisplay(Label):
         pass
 
     class SourceController(BoxLayout):
+        selected = StringProperty()
         pass
 
     class TargetController(BoxLayout):
+        selected = StringProperty()
         pass
 
     class ResultDisplay(Label):
@@ -56,15 +55,10 @@ class RootWidget(Widget):
                 RootWidget.result_label.text = str(e)
 
     class TargetButton(ToggleButton):
-
-        def update_target_label(instance):
-            instance.text = "CAAATS"
+        pass
 
     class SourceButton(ToggleButton):
-        info = StringProperty()
-
-        def update_source_label(self):
-            self.source_label.text = "Make " + "CATS"
+        pass
 
     class ResultController(BoxLayout):
 

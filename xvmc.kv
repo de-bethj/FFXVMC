@@ -1,14 +1,19 @@
 #:kivy 2.0.0
 
+<TargetController>:
+    id: target_group
+    orientation: 'vertical'
+    selected: "what?"
+
+<SourceController>:
+    orientation: 'vertical'
+    selected: "what?"
+
 <TargetButton>:
     group: 'target'
-    on_press: root.update_target_label
-    on_release: root.update_target_label
 
 <SourceButton>:
     group: 'source'
-    on_press: root.update_source_label
-    on_release: root.update_source_label
 
 <ResultDisplay>:
     id: result_label
@@ -40,62 +45,87 @@
 
 
         TargetController:
-            target_label: target_label
-            BoxLayout:
-                orientation: 'vertical'
+            id: target_group
+            Label:
+                id: target_label
+                text: "Make " + target_group.selected
 
-                Label:
-                    id: target_label
-                    text: "Make what?"
-
-                TargetButton:
-                    text: "Gold"
-                    background_color: "gold"
-                TargetButton:
-                    text: "Purple"
-                    background_color: "purple"
-                TargetButton:
-                    text: "Blue"
-                    background_color: "blue"
-                TargetButton:
-                    text: "Green"
-                    background_color: "lime"
-                TargetButton:
-                    text: "White"
-                    background_color: "white"
-                TargetButton:
-                    text: "Black"
-                    background_color: "gray"
-                DummyDisplay:
+            TargetButton:
+                text: "Gold"
+                background_color: "gold"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    target_group.selected = output
+            TargetButton:
+                text: "Purple"
+                background_color: "purple"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    target_group.selected = output
+            TargetButton:
+                text: "Blue"
+                background_color: "blue"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    target_group.selected = output
+            TargetButton:
+                text: "Green"
+                background_color: "lime"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    target_group.selected = output
+            TargetButton:
+                text: "White"
+                background_color: "white"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    target_group.selected = output
+            TargetButton:
+                text: "Black"
+                background_color: "gray"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    target_group.selected = output
+            DummyDisplay:
 
 
         SourceController:
-            source_label: source_label
-            BoxLayout:
-                orientation: 'vertical'
+            id: source_group
+            Label:
+                id: source_label
+                text: "From " + source_group.selected
 
-                Label:
-                    id: source_label
-                    text: "From what?"
-
-                SourceButton:
-                    text: "Gold"
-                SourceButton:
-                    text: "Purple"
-                SourceButton:
-                    text: "Blue"
-                SourceButton:
-                    text: "Green"
-                SourceButton:
-                    text: "White"
-                SourceButton:
-                    text: "Black"
-                DummyDisplay:
+            SourceButton:
+                text: "Gold"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    source_group.selected = output
+            SourceButton:
+                text: "Purple"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    source_group.selected = output
+            SourceButton:
+                text: "Blue"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    source_group.selected = output
+            SourceButton:
+                text: "Green"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    source_group.selected = output
+            SourceButton:
+                text: "White"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    source_group.selected = output
+            SourceButton:
+                text: "Black"
+                on_press:
+                    output = self.text if self.state == 'down' else "what?"
+                    source_group.selected = output
+            DummyDisplay:
 
     ResultDisplay:
         width: root.width
-
-
-
-
-
