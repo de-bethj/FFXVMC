@@ -6,12 +6,12 @@ PURPLE = "purple"
 GOLD = "gold"
 
 MATS = {
-    "black": {"color": "black", "level": 1, "weight": 1},
-    "white": {"color": "white", "level": 2, "weight": 4},
-    "green": {"color": "green", "level": 3, "weight": 16},
-    "blue": {"color": "blue", "level": 4, "weight": 64},
-    "purple": {"color": "purple", "level": 5, "weight": 256},
-    "gold": {"color": "gold", "level": 6, "weight": 1024}
+    "Black": {"color": "black", "level": 1, "weight": 1},
+    "White": {"color": "white", "level": 2, "weight": 4},
+    "Green": {"color": "green", "level": 3, "weight": 16},
+    "Blue": {"color": "blue", "level": 4, "weight": 64},
+    "Purple": {"color": "purple", "level": 5, "weight": 256},
+    "Gold": {"color": "gold", "level": 6, "weight": 1024}
 }
 
 STEP = 4
