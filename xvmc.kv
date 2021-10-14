@@ -1,11 +1,22 @@
 #:kivy 2.0.0
 
-<TargetController>:
+<DummyDisplay>:
+# forces the buttons to make space for the result display
+    text: ""
+    size: (self.width, 50)
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: (self.width, self.height)
+
+<TargetGrouping>:
     id: target_group
     orientation: 'vertical'
     selected: "what?"
 
-<SourceController>:
+<SourceGrouping>:
     orientation: 'vertical'
     selected: "what?"
 
@@ -26,17 +37,6 @@
             pos: self.pos
             size: (self.width, self.height)
 
-<DummyDisplay>:
-# forces the buttons to make space for the result display
-    text: ""
-    size: (self.width, 50)
-    canvas.before:
-        Color:
-            rgba: 0, 0, 0, 1
-        Rectangle:
-            pos: self.pos
-            size: (self.width, self.height)
-
 <RootWidget>:
     GridLayout:
         cols: 2
@@ -44,7 +44,7 @@
         height: root.height
 
 
-        TargetController:
+        TargetGrouping:
             id: target_group
             Label:
                 id: target_label
@@ -89,7 +89,7 @@
             DummyDisplay:
 
 
-        SourceController:
+        SourceGrouping:
             id: source_group
             Label:
                 id: source_label

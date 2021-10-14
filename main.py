@@ -1,103 +1,81 @@
 import math
-import logging
+#import logging
 
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import ObjectProperty, StringProperty
+from kivy.properties import StringProperty
 
 from constants import STEP, MATS
 
 
 class RootWidget(Widget):
+    pass
 
-    class DummyDisplay(Label):
-        pass
 
-    class SourceController(BoxLayout):
-        selected = StringProperty()
-        pass
+class DummyDisplay(Label):
+    pass
 
-    class TargetController(BoxLayout):
-        selected = StringProperty()
-        pass
 
-    class ResultDisplay(Label):
-        def updateDisplay(self, instance):
+class TargetGrouping(BoxLayout):
+    selected = StringProperty()
+    pass
 
-            def getDifference(_target, _source):
-                _difference = _target - _source
-                if _difference < 0:
-                    raise ValueError(_difference)
-                return _difference
 
-            try:
+class SourceGrouping(BoxLayout):
+    selected = StringProperty()
+#    pass
 
-                target_name = RootWidget.target_label.text.lstrip("make ")
-                target_level = MATS[target_name]["level"]
 
-                source_name = RootWidget.source_label.text.lstrip("from ")
-                source_level = MATS[source_name]["level"]
+class TargetButton(ToggleButton):
+    pass
 
-                difference = getDifference(target_level, source_level)
 
-                raw_result = math.pow(STEP, difference)
-                result = str(math.ceil(raw_result))
-                RootWidget.result_label.text = result + " " + source_name + " = 1 " + target_name
+class SourceButton(ToggleButton):
+    pass
 
-            except KeyError as e:
-                RootWidget.result_label.text = str(e)
-            except ValueError:
-                RootWidget.result_label.text = "---"
-            except Exception as e:
-                RootWidget.result_label.text = str(e)
 
-    class TargetButton(ToggleButton):
-        pass
+class ResultController(BoxLayout):
+    pass
 
-    class SourceButton(ToggleButton):
-        pass
 
-    class ResultController(BoxLayout):
+class ResultDisplay(Label):
+    def updateDisplay(self, instance):
 
-        result_label = ObjectProperty()
-        info = StringProperty()
+        def getDifference(_target, _source):
+            _difference = _target - _source
+            if _difference < 0:
+                raise ValueError(_difference)
+            return _difference
 
-        def update_result_label(self, instance):
+        try:
 
-            def getDifference(_target, _source):
-                _difference = _target - _source
-                if _difference < 0:
-                    raise ValueError(_difference)
-                return _difference
+            target_name = RootWidget.target_label.text.lstrip("make ")
+            target_level = MATS[target_name]["level"]
 
-            try:
+            source_name = RootWidget.source_label.text.lstrip("from ")
+            source_level = MATS[source_name]["level"]
 
-                target_name = RootWidget.target_label.text.lstrip("make ")
-                target_level = MATS[target_name]["level"]
+            difference = getDifference(target_level, source_level)
 
-                source_name = RootWidget.source_label.text.lstrip("from ")
-                source_level = MATS[source_name]["level"]
+            raw_result = math.pow(STEP, difference)
+            result = str(math.ceil(raw_result))
+            RootWidget.result_label.text = result + " " + source_name + " = 1 " + target_name
 
-                difference = getDifference(target_level, source_level)
-
-                raw_result = math.pow(STEP, difference)
-                result = str(math.ceil(raw_result))
-                RootWidget.result_label.text = result + " " + source_name + " = 1 " + target_name
-
-            except KeyError as e:
-                RootWidget.result_label.text = str(e)
-            except ValueError:
-                RootWidget.result_label.text = "---"
-            except Exception as e:
-                RootWidget.result_label.text = str(e)
+        except KeyError as e:
+            RootWidget.result_label.text = str(e)
+        except ValueError:
+            RootWidget.result_label.text = "---"
+        except Exception as e:
+            RootWidget.result_label.text = str(e)
 
 
 class xvmcApp(App):
     def build(self):
-        return RootWidget()
+        root_widget = RootWidget()
+        return root_widget
 
 
 xvmcApp().run()
