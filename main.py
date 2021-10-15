@@ -1,21 +1,31 @@
 import math
-#import logging
+import logging
 
 from kivy.app import App
+import kivy.resources as krs
 from kivy.uix.widget import Widget
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty, NumericProperty
 
-from constants import MATS
+#from constants import MATS, STEP
+
+#The all-important materials
+MATS = {
+    "Black": { "level": 1},
+    "White": {"level": 2},
+    "Green": {"level": 3},
+    "Blue": {"level": 4},
+    "Purple": {"level": 5},
+    "Gold": {"level": 6}
+}
 
 #The value of the result display, when a valid result is not available
 EMPTY_LINE = "----------------"
 
 #The number of level N materials needed to make one material of level N+1
 STEP = 4
-
 
 class RootWidget(Widget):
     pass
@@ -96,3 +106,4 @@ class xvmcApp(App):
 
 
 xvmcApp().run()
+

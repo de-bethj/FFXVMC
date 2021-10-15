@@ -22,9 +22,11 @@
 
 <TargetButton>:
     group: 'target'
+    background_down: 'atlas://data/images/defaulttheme/button'
 
 <SourceButton>:
     group: 'source'
+    background_down: 'atlas://data/images/defaulttheme/button'
 
 <ResultController>:
     size: (self.width, 75)
@@ -61,37 +63,37 @@
 
             TargetButton:
                 text: "Gold"
-                background_color: "gold"
+                background_color: {'normal': '#bd893170', 'down': '#bd8931'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     target_group.selected = output
             TargetButton:
                 text: "Purple"
-                background_color: "purple"
+                background_color: {'normal': '#8473a570', 'down': '#8473a5'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     target_group.selected = output
             TargetButton:
                 text: "Blue"
-                background_color: "blue"
+                background_color: {'normal': '#4194a870', 'down': '#4194a8'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     target_group.selected = output
             TargetButton:
                 text: "Green"
-                background_color: "lime"
+                background_color: {'normal': '#3b875d70', 'down': '#3b875d'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     target_group.selected = output
             TargetButton:
                 text: "White"
-                background_color: "white"
+                background_color: {'normal': '#cbcbcb70', 'down': '#cbcbcb'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     target_group.selected = output
             TargetButton:
                 text: "Black"
-                background_color: "gray"
+                background_color: {'normal': '#65656570', 'down': '#656565'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     target_group.selected = output
@@ -104,44 +106,39 @@
                 id: source_label
                 text: "From " + source_group.selected
 
-            # The execution of the [background_color] property is correct.
-            # But the colors are off so I'm going to have to tweak things.
-            # In the meantime I'll just comment the alterations out.
-            # --BJD
-
             SourceButton:
                 text: "Gold"
-                #background_color: {'normal': '#bd893170', 'down': '#bd8931'} [self.state]
+                background_color: {'normal': '#bd893170', 'down': '#bd8931'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     source_group.selected = output
             SourceButton:
                 text: "Purple"
-                #background_color: {'normal': '#8473a570', 'down': '#8473a5'} [self.state]
+                background_color: {'normal': '#8473a570', 'down': '#8473a5'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     source_group.selected = output
             SourceButton:
                 text: "Blue"
-                #background_color: {'normal': '#4194a870', 'down': '#4194a8'} [self.state]
+                background_color: {'normal': '#4194a870', 'down': '#4194a8'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     source_group.selected = output
             SourceButton:
                 text: "Green"
-                #background_color: {'normal': '#3b875d70', 'down': '#3b875d'} [self.state]
+                background_color: {'normal': '#3b875d70', 'down': '#3b875d'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     source_group.selected = output
             SourceButton:
                 text: "White"
-                #background_color: {'normal': '#cbcbcb70', 'down': '#cbcbcb'} [self.state]
+                background_color: {'normal': '#cbcbcb70', 'down': '#cbcbcb'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     source_group.selected = output
             SourceButton:
                 text: "Black"
-                #background_color: {'normal': '#65656570', 'down': '#656565'} [self.state]
+                background_color: {'normal': '#65656570', 'down': '#656565'} [self.state]
                 on_press:
                     output = self.text if self.state == 'down' else "what?"
                     source_group.selected = output
